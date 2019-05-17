@@ -20,34 +20,35 @@ This software is responsible for all the intelligence in increasing and decreasi
 
 ## ENVs configuration
 
-- DATAPOINTCONFIG
+- DATA_POINT_CONFIG
   - Default 30
-- STATISTICCONFIG
+- STATISTIC_CONFIG
   - Default Average
-- FLEETTYPECONFIG
+- FLEET_TYPE_CONFIG
   - Default FleetRequestId
-- IDMETRICCONFIG
+- ID_METRIC_CONFIG
   - Default metric
-- SCANTYPECONFIG
+- SCAN_TYPE_CONFIG
   - Default TimestampDescending
-- METRICNAMECONFIG
+- METRIC_NAME_CONFIG
   - Default PendingCapacity
-- NAMESPACECONFIG
+- NAMESPACE_CONFIG
   - Default AWS
-- UNITCONFIG
+- UNIT_CONFIG
   - Default Count
-- TIMETOCONFIG
+- TIME_TO_CONFIG
   - Default 5
-- SPEEDCONFIG
+- SPEED_CONFIG
   - Default 10
-- SPEEDCONFIG
-  - Default 10
-- FLEETIGNORED
+- DIVIDER_CONFIG
+  - Default 4
+- FLEET_IGNORED
   - Default none
-- ENABLEEVENTSONSQS
+- ENABLE_EVENTS_ON_SQS
   - Default false
-- SQSURL
+- SQS_URL
   - Default none
+
 
 ## Installing with Docker
 
@@ -141,33 +142,33 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
 
-- DATAPOINTCONFIG
+- DATA_POINT_CONFIG
   - Padrão 30
-- STATISTICCONFIG
+- STATISTIC_CONFIG
   - Padrão Average
-- FLEETTYPECONFIG
+- FLEET_TYPE_CONFIG
   - Padrão FleetRequestId
-- IDMETRICCONFIG
+- ID_METRIC_CONFIG
   - Padrão metric
-- SCANTYPECONFIG
+- SCAN_TYPE_CONFIG
   - Padrão TimestampDescending
-- METRICNAMECONFIG
+- METRIC_NAME_CONFIG
   - Padrão PendingCapacity
-- NAMESPACECONFIG
+- NAMESPACE_CONFIG
   - Padrão AWS
-- UNITCONFIG
+- UNIT_CONFIG
   - Padrão Count
-- TIMETOCONFIG
+- TIME_TO_CONFIG
   - Padrão 5
-- SPEEDCONFIG
+- SPEED_CONFIG
   - Padrão 10
-- SPEEDCONFIG
-  - Padrão 10
-- FLEETIGNORED
+- DIVIDER_CONFIG
+  - Padrão 4
+- FLEET_IGNORED
   - Padrão nenhum
-- ENABLEEVENTSONSQS
+- ENABLE_EVENTS_ON_SQS
   - Padrão false
-- SQSURL
+- SQS_URL
   - Padrão nenhum
 
 ## Instalando o projeto via o Docker

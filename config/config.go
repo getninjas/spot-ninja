@@ -58,7 +58,7 @@ func getArryStringEnv(key string) ([]string, error) {
 
 // DataPointConfig is How much statistical data that CloudWatch will return
 func DataPointConfig() int64 {
-	env, _ := getIntEnv("DATAPOINTCONFIG")
+	env, _ := getIntEnv("DATA_POINT_CONFIG")
 	if env == 0 {
 		env = 30
 	}
@@ -67,7 +67,7 @@ func DataPointConfig() int64 {
 
 // StatisticConfig is the Statistic type to check
 func StatisticConfig() string {
-	env, _ := getStringEnv("STATISTICCONFIG")
+	env, _ := getStringEnv("STATISTIC_CONFIG")
 	if len(env) == 0 {
 		env = "Average"
 	}
@@ -76,7 +76,7 @@ func StatisticConfig() string {
 
 // FleetTypeConfig is the Fleet request type to query on AWS
 func FleetTypeConfig() string {
-	env, _ := getStringEnv("FLEETTYPECONFIG")
+	env, _ := getStringEnv("FLEET_TYPE_CONFIG")
 	if len(env) <= 1 {
 		env = "FleetRequestId"
 	}
@@ -85,7 +85,7 @@ func FleetTypeConfig() string {
 
 // IDmetricConfig is the ID name to query on CloudWatch
 func IDmetricConfig() string {
-	env, _ := getStringEnv("IDMETRICCONFIG")
+	env, _ := getStringEnv("ID_METRIC_CONFIG")
 	if len(env) <= 1 {
 		env = "metric"
 	}
@@ -94,7 +94,7 @@ func IDmetricConfig() string {
 
 // ScantypeConfig are the Scan type
 func ScantypeConfig() string {
-	env, _ := getStringEnv("SCANTYPECONFIG")
+	env, _ := getStringEnv("SCAN_TYPE_CONFIG")
 	if len(env) <= 1 {
 		env = "TimestampDescending"
 	}
@@ -103,7 +103,7 @@ func ScantypeConfig() string {
 
 // MetricnameConfig are the Name of metric
 func MetricnameConfig() string {
-	env, _ := getStringEnv("METRICNAMECONFIG")
+	env, _ := getStringEnv("METRIC_NAME_CONFIG")
 	if len(env) <= 1 {
 		env = "PendingCapacity"
 	}
@@ -112,7 +112,7 @@ func MetricnameConfig() string {
 
 // NamespaceConfig are the AWS service name
 func NamespaceConfig() string {
-	env, _ := getStringEnv("NAMESPACECONFIG")
+	env, _ := getStringEnv("NAMESPACE_CONFIG")
 	if len(env) <= 1 {
 		env = "AWS/EC2Spot"
 	}
@@ -121,7 +121,7 @@ func NamespaceConfig() string {
 
 // UnitConfig are the time unit
 func UnitConfig() string {
-	env, _ := getStringEnv("UNITCONFIG")
+	env, _ := getStringEnv("UNIT_CONFIG")
 	if len(env) <= 1 {
 		env = "Count"
 	}
@@ -130,7 +130,7 @@ func UnitConfig() string {
 
 // TimeToConfig to look at past (in minutes)
 func TimeToConfig() int64 {
-	env, _ := getIntEnv("TIMETOCONFIG")
+	env, _ := getIntEnv("TIME_TO_CONFIG")
 	if env <= 1 {
 		env = 5
 	}
@@ -139,7 +139,7 @@ func TimeToConfig() int64 {
 
 // SpeedConfig Daemon speed(seconds)
 func SpeedConfig() int64 {
-	env, _ := getIntEnv("SPEEDCONFIG")
+	env, _ := getIntEnv("SPEED_CONFIG")
 	if env <= 1 {
 		env = 10
 	}
@@ -148,27 +148,27 @@ func SpeedConfig() int64 {
 
 // DividerConfig Divider number of the missing capacity result
 func DividerConfig() int64 {
-	env, _ := getIntEnv("SPEEDCONFIG")
+	env, _ := getIntEnv("DIVIDER_CONFIG")
 	if env == 0 {
-		env = 10
+		env = 4
 	}
 	return env
 }
 
 // FleetIgnored return a fleet array list to be ignored by the spot-advisor
 func FleetIgnored() []string {
-	env, _ := getArryStringEnv("FLEETIGNORED")
+	env, _ := getArryStringEnv("FLEET_IGNORED")
 	return env
 }
 
 // EnableEventsOnSqs enable or disable sqs post events
 func EnableEventsOnSqs() bool {
-	env, _ := getBoolEnv("ENABLEEVENTSONSQS")
+	env, _ := getBoolEnv("ENABLE_EVENTS_ON_SQS")
 	return env
 }
 
 // SqsURL return sqs url to post events
 func SqsURL() string {
-	env, _ := getStringEnv("SQSURL")
+	env, _ := getStringEnv("SQS_URL")
 	return env
 }

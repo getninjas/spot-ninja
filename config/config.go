@@ -172,3 +172,12 @@ func SqsURL() string {
 	env, _ := getStringEnv("SQS_URL")
 	return env
 }
+
+// ScallingPrefix will get the prefix to find the right scalling name
+func ScallingPrefix() string {
+	env, _ := getStringEnv("PREFIX")
+	if len(env) <= 1 {
+		env = "ecs-"
+	}
+	return env
+}

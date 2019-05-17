@@ -116,7 +116,8 @@ func ScalingName(id string) string {
 		}
 	}
 
-	return getRegex.ReplaceAllString(scaling, "ecs-")
+	prefix := config.ScallingPrefix()
+	return getRegex.ReplaceAllString(scaling, prefix)
 }
 
 // IncreaseGroup increases the self-dimensioning group

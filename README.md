@@ -130,6 +130,8 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
   - Padrão false
 - SQS_URL
   - Padrão nenhum
+- PREFIX
+  - Padrão ecs-
 
 ## Instalando o projeto via o docker-compose
 

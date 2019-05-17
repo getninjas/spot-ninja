@@ -9,6 +9,6 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker-compose build
+  - docker-compose build -t spot-ninja .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push getninjas/spot-ninja:latest

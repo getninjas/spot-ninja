@@ -155,7 +155,7 @@ func DividerConfig() int64 {
 	return env
 }
 
-// FleetIgnored return a fleet array list to be ignored by the spot-advisor
+// FleetIgnored return a fleet array list to be ignored by the spot-ninja
 func FleetIgnored() []string {
 	env, _ := getArryStringEnv("FLEET_IGNORED")
 	return env

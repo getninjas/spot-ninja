@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/getninjas/spot-advisor/pkg/structure"
+	"github.com/getninjas/spot-ninja/pkg/structure"
 )
 
 func Test_sessiontStartEc2(t *testing.T) {

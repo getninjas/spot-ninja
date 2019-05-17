@@ -1,4 +1,4 @@
-# spot-advisor
+# spot-ninja
 
 Available translations:
 
@@ -63,7 +63,7 @@ export AWS_REGION=us-east-1
 docker-compose build
 ```
 
-3 - Run spot-advisor
+3 - Run spot-ninja
 
 ```bash
 docker-compose up
@@ -80,17 +80,17 @@ export AWS_REGION=us-east-1
 2 - Install the binary
 
 ```bash
-go get github.com/getninjas/spot-advisor
+go get github.com/getninjas/spot-ninja
 ```
 
-3 - Run spot-advisor
+3 - Run spot-ninja
 
 ## Manual build
 
 1 - Clone this repository:
 
 ```bash
-git clone git@github.com:getninjas/spot-advisor -b master
+git clone git@github.com:getninjas/spot-ninja -b master
 ```
 
 2 - Modify config/config.go according to your needs:
@@ -104,7 +104,7 @@ export AWS_REGION=us-east-1
 3 - After testing, run the build:
 
 ```bash
- go build -o spot-advisor ./cmd/spot-advisor/main.go
+ go build -o spot-ninja ./cmd/spot-ninja/main.go
  ```
 
 ## Project Structure
@@ -116,7 +116,7 @@ export AWS_REGION=us-east-1
 - internal/
   - source code.
 - Parameter Store:
-  - /{CLUSTER}/spot-advisor/SPOT_CONFIG
+  - /{CLUSTER}/spot-ninja/SPOT_CONFIG
 
 ### Refs
 
@@ -184,7 +184,7 @@ export AWS_REGION=us-east-1
 docker-compose build
 ```
 
-3 - Execute o spot-advisor
+3 - Execute o spot-ninja
 
 ```bash
 docker-compose up
@@ -201,17 +201,17 @@ export AWS_REGION=us-east-1
 2 - Instale o binário
 
 ```bash
-go get github.com/getninjas/spot-advisor
+go get github.com/getninjas/spot-ninja
 ```
 
-3 - Execute o spot-advisor
+3 - Execute o spot-ninja
 
 ## Build o projeto manualmente
 
 1 - Clone o repositório:
 
 ```bash
-git clone git@github.com:getninjas/spot-advisor -b master
+git clone git@github.com:getninjas/spot-ninja -b master
 ```
 
 2 - Altere o config/config.go para as suas configurações personalizadas:
@@ -225,7 +225,7 @@ export AWS_REGION=us-east-1
 3 - Após test, execute o build:
 
 ```bash
- go build -o spot-advisor ./cmd/spot-advisor/main.go
+ go build -o spot-ninja ./cmd/spot-ninja/main.go
  ```
 
 ## Estrutura
@@ -237,7 +237,7 @@ export AWS_REGION=us-east-1
 - internal/
   - código fonte do projeto.
 - Parameter Store:
-  - /{CLUSTER}/spot-advisor/SPOT_CONFIG
+  - /{CLUSTER}/spot-ninja/SPOT_CONFIG
 
 ## Ref
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/getninjas/spot-advisor/pkg/api"
-	"github.com/getninjas/spot-advisor/pkg/structure"
+	"github.com/getninjas/spot-ninja/pkg/api"
+	"github.com/getninjas/spot-ninja/pkg/structure"
 )
 
 // Const to fix the warmup decreaseLogic. This number control if the requestID is valid

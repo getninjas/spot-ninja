@@ -8,7 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
-	"github.com/getninjas/spot-advisor/config"
+	"github.com/getninjas/spot-ninja/config"
 )
 
 func TestQueryData(t *testing.T) {

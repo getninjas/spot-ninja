@@ -3,12 +3,12 @@
 # ------------------------------------------------------------------------------
 FROM golang@sha256:55f89a93dde69671d902f5c205ff49299cb4dfa3480961773dd8f61696a3aa02 AS pre-build
 LABEL SQUAD="getninjas"
-RUN useradd spot-advisor
-ENV APP /home/spot-advisor
+RUN useradd spot-ninja
+ENV APP /home/spot-ninja
 ENV FLEETIGNORED "fleet1,fleet2"
 ENV SQSURL "https://sqs.example.com"
-WORKDIR ${APP}/src/spot-advisor
-COPY . ${APP}/src/spot-advisor
+WORKDIR ${APP}/src/spot-ninja
+COPY . ${APP}/src/spot-ninja
 # ------------------------------------------------------------------------------
 # test - test and conver
 # ------------------------------------------------------------------------------
@@ -19,7 +19,7 @@ RUN go test -cover ./config/ \
     && go test -cover ./pkg/logic/ \
     && go test -cover ./pkg/structure/ \
     && go vet ./pkg/api/ \
-    && go vet ./cmd/spot-advisor/ \
+    && go vet ./cmd/spot-ninja/ \
     && go vet ./config/ \
     && go vet ./pkg/logic/ \
     && go vet ./pkg/structure/
@@ -28,18 +28,18 @@ RUN go test -cover ./config/ \
 # ------------------------------------------------------------------------------
 FROM test AS builder
 LABEL SQUAD="getninjas"
-ENV APP /home/spot-advisor
+ENV APP /home/spot-ninja
 RUN CGO_ENABLED=0 GOOS=linux \
-    go build -o ${APP}/spot-advisor ./cmd/spot-advisor/main.go \
-    && chmod +x ${APP}/spot-advisor \
+    go build -o ${APP}/spot-ninja ./cmd/spot-ninja/main.go \
+    && chmod +x ${APP}/spot-ninja \
     && echo "nobody:x:65534:65534:Nobody:/:" > ${APP}/etc_passwd
 ## ------------------------------------------------------------------------------
 ## runner - daemon image
 ## ------------------------------------------------------------------------------
 FROM scratch AS runner
-ENV APP /home/spot-advisor
+ENV APP /home/spot-ninja
 COPY --from=builder /etc/ssl /etc/ssl
 COPY --from=builder ${APP}/etc_passwd /etc/passwd
-COPY --from=builder ${APP}/spot-advisor /spot-advisor
+COPY --from=builder ${APP}/spot-ninja /spot-ninja
 USER nobody
-CMD ["/spot-advisor"]
+CMD ["/spot-ninja"]

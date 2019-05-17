@@ -7,7 +7,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
-	"github.com/getninjas/spot-advisor/config"
+	"github.com/getninjas/spot-ninja/config"
 )
 
 // time to a instance on demmand stay alive (45 min)

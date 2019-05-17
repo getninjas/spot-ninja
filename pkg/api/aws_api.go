@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/getninjas/spot-advisor/config"
+	"github.com/getninjas/spot-ninja/config"
 
 	"github.com/aws/aws-sdk-go/service/sqs"
 
@@ -15,7 +15,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/autoscaling"
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/getninjas/spot-advisor/pkg/structure"
+	"github.com/getninjas/spot-ninja/pkg/structure"
 )
 
 // waintTimeDrain will controll how many (seconds) time to wait to drain result
@@ -218,7 +218,7 @@ func sendSqsMessage(instanceID string) bool {
 
 	message := &sqs.SendMessageInput{
 		DelaySeconds: aws.Int64(5),
-		MessageBody:  aws.String(`{ "detail-type": "Spot Advisor Notification Drain", "source": "Spot-Advisor", "detail": { "instance-id": ` + instanceID + `, "state": "terminated" } }`),
+		MessageBody:  aws.String(`{ "detail-type": "Spot Ninja Notification Drain", "source": "spot-ninja", "detail": { "instance-id": ` + instanceID + `, "state": "terminated" } }`),
 		QueueUrl:     &qURL,
 	}
 	_, err := client.SendMessage(message)

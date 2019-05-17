@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/getninjas/spot-advisor/pkg/logic"
-	"github.com/getninjas/spot-advisor/pkg/structure"
+	"github.com/getninjas/spot-ninja/pkg/logic"
+	"github.com/getninjas/spot-ninja/pkg/structure"
 )
 
 // main invokes all initial functions

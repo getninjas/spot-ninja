@@ -9,6 +9,10 @@ Available translations:
 
 This software is responsible for all the intelligence in increasing and decreasing AutoScalingGroups size based on Spotfleet health.
 
+## License
+
+spot ninja is released under the terms of the Apache License. See LICENSE file for more information or see [apache](https://www.apache.org/licenses/LICENSE-2.0)
+
 ## Requirements
 
 - Docker >=v1.13.1

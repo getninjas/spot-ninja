@@ -8,7 +8,6 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
-	"github.com/getninjas/spot-ninja/config"
 )
 
 func TestQueryData(t *testing.T) {
@@ -113,22 +112,6 @@ func TestIDMetric(t *testing.T) {
 	}
 }
 
-func TestNameSpace(t *testing.T) {
-	vWant := config.NamespaceConfig()
-
-	tests := []struct {
-		name string
-		want *string
-	}{}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := NameSpace(); got != &vWant {
-				t.Errorf("NameSpace() = %v, want %v", got, &vWant)
-			}
-		})
-	}
-}
-
 func TestUnit(t *testing.T) {
 	tests := []struct {
 		name string
@@ -182,7 +165,7 @@ func TestDivider(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"test", 10},
+		{"test", 4},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

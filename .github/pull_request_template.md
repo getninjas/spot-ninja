@@ -1,5 +1,7 @@
 # PR Howto
 
+This template come from *temple from btc core*
+
 Pull requests without a rationale and clear improvement may be closed
 immediately.
 
@@ -22,3 +24,4 @@ spot-ninja significantly.
   are useful, what downsides they have and why they *significantly* improve
   developer experience or avoid serious programming bugs. Note that code style
   is often a subjective matter.
+

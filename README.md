@@ -33,7 +33,7 @@ This software is responsible for all the intelligence in increasing and decreasi
 - METRIC_NAME_CONFIG
   - Default PendingCapacity
 - NAMESPACE_CONFIG
-  - Default AWS
+  - Default AWS/EC2Spot
 - UNIT_CONFIG
   - Default Count
 - TIME_TO_CONFIG
@@ -154,7 +154,7 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
 - METRIC_NAME_CONFIG
   - Padrão PendingCapacity
 - NAMESPACE_CONFIG
-  - Padrão AWS
+  - Padrão AWS/EC2Spot
 - UNIT_CONFIG
   - Padrão Count
 - TIME_TO_CONFIG

@@ -18,6 +18,37 @@ This software is responsible for all the intelligence in increasing and decreasi
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
 
+## ENVs configuration
+
+- DATAPOINTCONFIG
+  - Default 30
+- STATISTICCONFIG
+  - Default Average
+- FLEETTYPECONFIG
+  - Default FleetRequestId
+- IDMETRICCONFIG
+  - Default metric
+- SCANTYPECONFIG
+  - Default TimestampDescending
+- METRICNAMECONFIG
+  - Default PendingCapacity
+- NAMESPACECONFIG
+  - Default AWS
+- UNITCONFIG
+  - Default Count
+- TIMETOCONFIG
+  - Default 5
+- SPEEDCONFIG
+  - Default 10
+- SPEEDCONFIG
+  - Default 10
+- FLEETIGNORED
+  - Default none
+- ENABLEEVENTSONSQS
+  - Default false
+- SQSURL
+  - Default none
+
 ## Installing with Docker
 
 1 - Set your AWS_REGION env variable:
@@ -109,6 +140,35 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
   - CloudWatchReadOnlyAccess
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
+
+- DATAPOINTCONFIG
+  - Padrão 30
+- STATISTICCONFIG
+  - Padrão Average
+- FLEETTYPECONFIG
+  - Padrão FleetRequestId
+- IDMETRICCONFIG
+  - Padrão metric
+- SCANTYPECONFIG
+  - Padrão TimestampDescending
+- METRICNAMECONFIG
+  - Padrão PendingCapacity
+- NAMESPACECONFIG
+  - Padrão AWS
+- UNITCONFIG
+  - Padrão Count
+- TIMETOCONFIG
+  - Padrão 5
+- SPEEDCONFIG
+  - Padrão 10
+- SPEEDCONFIG
+  - Padrão 10
+- FLEETIGNORED
+  - Padrão nenhum
+- ENABLEEVENTSONSQS
+  - Padrão false
+- SQSURL
+  - Padrão nenhum
 
 ## Instalando o projeto via o Docker
 

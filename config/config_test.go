@@ -10,7 +10,7 @@ func TestDataPointConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 42},
+		{"Teste", 30},
 	}
 	os.Setenv("DATAPOINTCONFIG", "42")
 	for _, tt := range tests {
@@ -171,7 +171,7 @@ func TestDividerConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 10},
+		{"Teste", 4},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

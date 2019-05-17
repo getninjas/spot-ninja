@@ -49,7 +49,6 @@ This software is responsible for all the intelligence in increasing and decreasi
 - SQS_URL
   - Default none
 
-
 ## Installing with Docker
 
 1 - Set your AWS_REGION env variable:

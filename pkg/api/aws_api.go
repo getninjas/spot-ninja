@@ -18,8 +18,8 @@ import (
 	"github.com/getninjas/spot-ninja/pkg/structure"
 )
 
-// waintTimeDrain will controll how many (seconds) time to wait to drain result
-const waintTimeDrain int = 300
+// waitTimeDrain will controll how many (seconds) time to wait to drain result
+const waitTimeDrain int = 300
 
 // Create a session on AWS EC2
 func sessiontStartEc2() *ec2.EC2 {
@@ -169,7 +169,7 @@ func IncreaseGroup(scaling string, capacity int64) bool {
 func DecreaseGroup(scaling string) bool {
 
 	listInstanceIds(scaling)
-	time.Sleep(time.Duration((waintTimeDrain)) * time.Second)
+	time.Sleep(time.Duration((waitTimeDrain)) * time.Second)
 
 	client := sessionStartAutoScaling()
 

@@ -1,5 +1,8 @@
 # spot-ninja
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/getninjas/spot-ninja)](https://goreportcard.com/report/github.com/getninjas/spot-ninja) [![Build Status](https://travis-ci.org/getninjas/spot-ninja.svg?branch=master)](https://travis-ci.org/getninjas/spot-ninja)
+[![GoDoc](https://godoc.org/github.com/getninjas/spot-ninja?status.svg)](https://godoc.org/github.com/getninjas/spot-ninja)
+
 Available translations:
 
 - [pt-BR](#pt-bR)
@@ -11,8 +14,8 @@ This software is responsible for all the intelligence in increasing and decreasi
 - Docker >=v1.13.1
 - Docker Compose >=1.23.1
 - Go >= 1.11.2
-- aws-sdk-go
-- yaml.v2
+- aws-sdk-go Module
+- yaml.v2 Module
 - Polices:
   - CloudWatchReadOnlyAccess
   - AmazonEC2SpotFleetAutoscaleRole
@@ -20,6 +23,8 @@ This software is responsible for all the intelligence in increasing and decreasi
 
 ## ENVs configuration
 
+- AWS_REGION
+  - Default us-east-1
 - DATA_POINT_CONFIG
   - Default 30
 - STATISTIC_CONFIG
@@ -49,74 +54,28 @@ This software is responsible for all the intelligence in increasing and decreasi
 - SQS_URL
   - Default none
 
-## Installing with Docker
+## Installing with docker-compose
 
-1 - Set your AWS_REGION env variable:
-
-```bash
-export AWS_REGION=us-east-1
-```
-
-2 - Build
+1 - Build
 
 ```bash
 docker-compose build
 ```
 
-3 - Run spot-ninja
+2 - Run spot-ninja
 
 ```bash
 docker-compose up
 ```
 
-## Installing without Docker
-
-1 - Set your AWS_REGION env variable:
-
-```bash
-export AWS_REGION=us-east-1
-```
-
-2 - Install the binary
-
-```bash
-go get github.com/getninjas/spot-ninja
-```
-
-3 - Run spot-ninja
-
-## Manual build
-
-1 - Clone this repository:
-
-```bash
-git clone git@github.com:getninjas/spot-ninja -b master
-```
-
-2 - Modify config/config.go according to your needs:
-
-3 - Set your AWS_REGION env variable:
-
-```bash
-export AWS_REGION=us-east-1
-```
-
-3 - After testing, run the build:
-
-```bash
- go build -o spot-ninja ./cmd/spot-ninja/main.go
- ```
-
 ## Project Structure
 
-- assets/
-  - images and icons.
+- cmd/
+  - main spot-ninja
 - config/
-  - spot-fleet config file.
-- internal/
-  - source code.
-- Parameter Store:
-  - /{CLUSTER}/spot-ninja/SPOT_CONFIG
+  - general configs to spot ninja
+- pkg/
+  - general libs
 
 ### Refs
 
@@ -134,13 +93,15 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
 - Docker >=v1.13.1
 - Docker Compose >=1.23.1
 - Go >= 1.11.2
-- aws-sdk-go
-- yaml.v2
+- Modulo aws-sdk-go
+- Modulo yaml.v2
 - Polices:
   - CloudWatchReadOnlyAccess
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
 
+- AWS_REGION
+  - Default us-east-1
 - DATA_POINT_CONFIG
   - Padrão 30
 - STATISTIC_CONFIG
@@ -170,74 +131,28 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
 - SQS_URL
   - Padrão nenhum
 
-## Instalando o projeto via o Docker
+## Instalando o projeto via o docker-compose
 
-1 - Tenha o AWS_REGION configurado:
-
-```bash
-export AWS_REGION=us-east-1
-```
-
-2 - Build via  docker-compose
+1 - Build via docker-compose
 
 ```bash
 docker-compose build
 ```
 
-3 - Execute o spot-ninja
+2 - Execute o spot-ninja
 
 ```bash
 docker-compose up
 ```
 
-## Instalando o projeto sem o Docker
-
-1 - Tenha o AWS_REGION configurado:
-
-```bash
-export AWS_REGION=us-east-1
-```
-
-2 - Instale o binário
-
-```bash
-go get github.com/getninjas/spot-ninja
-```
-
-3 - Execute o spot-ninja
-
-## Build o projeto manualmente
-
-1 - Clone o repositório:
-
-```bash
-git clone git@github.com:getninjas/spot-ninja -b master
-```
-
-2 - Altere o config/config.go para as suas configurações personalizadas:
-
-3 - Tenha o AWS_REGION configurado:
-
-```bash
-export AWS_REGION=us-east-1
-```
-
-3 - Após test, execute o build:
-
-```bash
- go build -o spot-ninja ./cmd/spot-ninja/main.go
- ```
-
 ## Estrutura
 
-- assets/
-  - imagens e icones.
+- cmd/
+  - main spot-ninja
 - config/
-  - arquivos de configuração do spot-fleet.
-- internal/
-  - código fonte do projeto.
-- Parameter Store:
-  - /{CLUSTER}/spot-ninja/SPOT_CONFIG
+  - configs gerais do spot ninja
+- pkg/
+  - libs
 
 ## Ref
 

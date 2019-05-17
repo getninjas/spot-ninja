@@ -11,7 +11,7 @@ This software is responsible for all the intelligence in increasing and decreasi
 
 ## License
 
-spot ninja is released under the terms of the Apache License. See LICENSE file for more information or see [apache](https://www.apache.org/licenses/LICENSE-2.0)
+spot ninja is released under the terms of the Apache License. See LICENSE file for more information or see [apache](https://www.apache.org/licenses/LICENSE-2.0).
 
 ## Requirements
 
@@ -91,6 +91,10 @@ docker-compose up
 ## pt-BR
 
 Software responsável pela inteligência de aumentar ou diminuir o tamanho do AutoScalingGroups, baseado na saúde do Spotfleet.
+
+## Licença
+
+spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais detalhes ou o link [apache](https://www.apache.org/licenses/LICENSE-2.0).
 
 ## Requerimentos
 

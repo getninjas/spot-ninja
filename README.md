@@ -25,7 +25,26 @@ spot ninja is released under the terms of the Apache License. See LICENSE file f
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
 
+Request fleet and auto scalling need to have the same name. The PREFIX ENV can be used to find the right name of autoscalling group.
+
+## Architecture
+
++==============================================================+
+|                                                              |
+|                    +---------+                               |
+|                    |   SQS   |               spot-ninja      |
+|                    +---------+                               |
+|                         |                                    |
+| +---------+       +--------------+      +---------------+    |
+| |  Fleet  |<----->|  spot ninja  |<---->| Auto Scalling |-+  |
+| +---------+       +--------------+      +---------------+    |
+|                                                              |
+|                                                              |
++==============================================================+
+
 ## ENVs configuration
+
+Spot-ninja uses environment variables to configure. To run spot-advisor, the below ENVs need to be used:
 
 - AWS_REGION
   - Default us-east-1
@@ -57,6 +76,8 @@ spot ninja is released under the terms of the Apache License. See LICENSE file f
   - Default false
 - SQS_URL
   - Default none
+- PREFIX
+  - Default ecs-
 
 ## Installing with docker-compose
 
@@ -85,7 +106,7 @@ docker-compose up
 
 - [gopherize](https://www.gopherize.me/)
 - [project-layout](https://github.com/golang-standards/project-layout)
-- [regex101](https://regex101.com/r/FwSMp7/1/)
+- [regex101](https://regex101.com/r/FwSMp7/1/)DataPointConfig
 - [sdk-for-go](https://docs.aws.amazon.com/sdk-for-go/api/)
 
 ## pt-BR
@@ -95,6 +116,21 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
 ## Licença
 
 spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais detalhes ou o link [apache](https://www.apache.org/licenses/LICENSE-2.0).
+
+## Arquitetura
+
++==============================================================+
+|                                                              |
+|                    +---------+                               |
+|                    |   SQS   |               spot-ninja      |
+|                    +---------+                               |
+|                         |                                    |
+| +---------+       +--------------+      +---------------+    |
+| |  Fleet  |<----->|  spot ninja  |<---->| Auto Scalling |-+  |
+| +---------+       +--------------+      +---------------+    |
+|                                                              |
+|                                                              |
++==============================================================+
 
 ## Requerimentos
 
@@ -107,6 +143,12 @@ spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais
   - CloudWatchReadOnlyAccess
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
+
+Request fleet e auto scalling precam ter o mesmo nome. A ENV PREFIX, pode ser usada para achar o nome correto do autoscalling.
+
+## Configuração de ENVs
+
+Spot-ninja usa variáveis de ambiente como configuração. Para rodas o spot-ninja, as variáveis abaixo são necessárias:
 
 - AWS_REGION
   - Default us-east-1

@@ -2,6 +2,7 @@ package config
 
 import (
 	"os"
+	"strings"
 	"testing"
 )
 
@@ -179,5 +180,78 @@ func TestDividerConfig(t *testing.T) {
 				t.Errorf("DividerConfig() = %v, want %v", got, tt.want)
 			}
 		})
+	}
+}
+
+func Test_getStringEnv(t *testing.T) {
+	tests := []struct {
+		name string
+		want string
+	}{
+		{"Teste", "hello42"},
+	}
+	os.Setenv("Test", "hello42")
+
+	result, _ := getStringEnv("Test")
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := result; got != tt.want {
+				t.Errorf("getStringEnv() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_getIntEnv(t *testing.T) {
+	tests := []struct {
+		name string
+		want int64
+	}{
+		{"Teste", 42},
+	}
+	os.Setenv("Test", "42")
+
+	result, _ := getIntEnv("Test")
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := result; got != tt.want {
+				t.Errorf("getIntEnv() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_getBoolEnv(t *testing.T) {
+	tests := []struct {
+		name string
+		want bool
+	}{
+		{"Teste", true},
+	}
+	os.Setenv("Test", "true")
+
+	result, _ := getBoolEnv("Test")
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := result; got != tt.want {
+				t.Errorf("getBoolEnv() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_getArryStringEnv(t *testing.T) {
+	strwant := strings.FieldsFunc("42,", func(r rune) bool {
+		if r == ',' {
+			return true
+		}
+		return false
+	})
+
+	os.Setenv("Test", "42")
+	result, _ := getArryStringEnv("Test")
+
+	if result[0] != strwant[0] {
+		t.Errorf("getArryStringEnv() = %v, want %v", result[0], strwant[0])
 	}
 }

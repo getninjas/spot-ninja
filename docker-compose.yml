@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  pre-build:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: pre-build
+  test:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: test
+  builder:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: builder
+  runner:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: runner

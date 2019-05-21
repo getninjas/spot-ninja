@@ -181,3 +181,13 @@ func ScallingPrefix() string {
 	}
 	return env
 }
+
+// TimeToLive returns (in seconds) the minimum time an instance should
+// be alive. The minimum is 60 seconds, default 15 min.
+func TimeToLive() int64 {
+	env, _ := getIntEnv("TIMETO_LIVE")
+	if env == 0 {
+		env = 900
+	}
+	return env
+}

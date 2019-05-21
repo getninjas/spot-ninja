@@ -255,3 +255,23 @@ func Test_getArryStringEnv(t *testing.T) {
 		t.Errorf("getArryStringEnv() = %v, want %v", result[0], strwant[0])
 	}
 }
+
+func TestTimeToLive(t *testing.T) {
+	tests := []struct {
+		name string
+		want int64
+	}{
+		{"Test", 42},
+	}
+
+	os.Setenv("TIMETO_LIVE", "42")
+	result := TimeToLive()
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := result; got != tt.want {
+				t.Errorf("getIntEnv() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

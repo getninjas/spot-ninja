@@ -10,9 +10,6 @@ import (
 	"github.com/getninjas/spot-ninja/config"
 )
 
-// time to a instance on demmand stay alive (45 min)
-const timeToLive int64 = 2700
-
 // QueryData return struct to query the data to the AWS
 func QueryData(dimension *cloudwatch.Dimension) *cloudwatch.MetricDataQuery {
 
@@ -140,7 +137,7 @@ func CheckLock(lock int64) bool {
 	t := time.Now()
 	timeNow := t.Unix()
 	result := timeNow - lock
-	return result >= timeToLive
+	return result >= config.TimeToLive()
 }
 
 // GetTrigger returns true if you need to enable fallback

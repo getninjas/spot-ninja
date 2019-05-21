@@ -1,10 +1,10 @@
 ---
 
 test:
-  - docker build .
+  - docker build -t getninjas/spot-ninja .
 
-build-image:
-  if: branch = master
-    - docker build -t getninjas/spot-ninja .
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push getninjas/spot-ninja:latest
+#build-image:
+#  if: branch = master
+#    - docker build -t getninjas/spot-ninja .
+#    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#    - docker push getninjas/spot-ninja:latest

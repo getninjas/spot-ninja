@@ -29,18 +29,7 @@ Request fleet and auto scalling need to have the same name. The PREFIX ENV can b
 
 ## Architecture
 
-+==============================================================+
-|                                                              |
-|                    +---------+                               |
-|                    |   SQS   |               spot-ninja      |
-|                    +---------+                               |
-|                         |                                    |
-| +---------+       +--------------+      +---------------+    |
-| |  Fleet  |<----->|  spot ninja  |<---->| Auto Scalling |-+  |
-| +---------+       +--------------+      +---------------+    |
-|                                                              |
-|                                                              |
-+==============================================================+
+![spot-ninja](assets/spot.png)
 
 ## ENVs configuration
 
@@ -119,18 +108,7 @@ spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais
 
 ## Arquitetura
 
-+==============================================================+
-|                                                              |
-|                    +---------+                               |
-|                    |   SQS   |               spot-ninja      |
-|                    +---------+                               |
-|                         |                                    |
-| +---------+       +--------------+      +---------------+    |
-| |  Fleet  |<----->|  spot ninja  |<---->| Auto Scalling |-+  |
-| +---------+       +--------------+      +---------------+    |
-|                                                              |
-|                                                              |
-+==============================================================+
+![spot-ninja](assets/spot.png)
 
 ## Requerimentos
 

@@ -1,6 +1,7 @@
 # spot-ninja
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/getninjas/spot-ninja)](https://goreportcard.com/report/github.com/getninjas/spot-ninja) [![Build Status](https://travis-ci.org/getninjas/spot-ninja.svg?branch=master)](https://travis-ci.org/getninjas/spot-ninja)
+[![Go Report Card](https://goreportcard.com/badge/github.com/getninjas/spot-ninja)](https://goreportcard.com/report/github.com/getninjas/spot-ninja)
+[![Build Status](https://travis-ci.org/getninjas/spot-ninja.svg?branch=master)](https://travis-ci.org/getninjas/spot-ninja)
 [![GoDoc](https://godoc.org/github.com/getninjas/spot-ninja?status.svg)](https://godoc.org/github.com/getninjas/spot-ninja)
 
 Available translations:
@@ -25,15 +26,13 @@ spot ninja is released under the terms of the Apache License. See LICENSE file f
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
 
-Request fleet and auto scalling need to have the same name. The PREFIX ENV can be used to find the right name of autoscalling group.
-
 ## Architecture
 
 ![spot-ninja](assets/spot.png)
 
 ## ENVs configuration
 
-Spot-ninja uses environment variables to configure. To run spot-advisor, the below ENVs need to be used:
+To configure the spot-ninja, you need to configure some environment variables. The variables are:
 
 - AWS_REGION
   - Default us-east-1
@@ -95,7 +94,7 @@ docker-compose up
 
 - [gopherize](https://www.gopherize.me/)
 - [project-layout](https://github.com/golang-standards/project-layout)
-- [regex101](https://regex101.com/r/FwSMp7/1/)DataPointConfig
+- [regex101](https://regex101.com/r/FwSMp7/1/)
 - [sdk-for-go](https://docs.aws.amazon.com/sdk-for-go/api/)
 
 ## pt-BR
@@ -105,10 +104,6 @@ Software responsável pela inteligência de aumentar ou diminuir o tamanho do Au
 ## Licença
 
 spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais detalhes ou o link [apache](https://www.apache.org/licenses/LICENSE-2.0).
-
-## Arquitetura
-
-![spot-ninja](assets/spot.png)
 
 ## Requerimentos
 
@@ -122,11 +117,13 @@ spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
 
-Request fleet e auto scalling precam ter o mesmo nome. A ENV PREFIX, pode ser usada para achar o nome correto do autoscalling.
+## Arquitetura
 
-## Configuração de ENVs
+![spot-ninja](assets/spot.png)
 
-Spot-ninja usa variáveis de ambiente como configuração. Para rodas o spot-ninja, as variáveis abaixo são necessárias:
+## Variáveis de ambiente
+
+Para configurar o spot-ninja, é necessário configurar algumas variáveis de ambiente. As variáveis são:
 
 - AWS_REGION
   - Default us-east-1

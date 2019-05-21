@@ -11,7 +11,7 @@ func Test_decreaseLogic(t *testing.T) {
 	}{
 		{"Test", true},
 	}
-	scaling := "Olamundo42"
+	scaling := "exampleScaling"
 	var count int64
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -29,7 +29,7 @@ func Test_scaleUp(t *testing.T) {
 	}{
 		{"Test", false},
 	}
-	scaling := "Olamundo42"
+	scaling := "exampleScaling"
 	var count int64
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

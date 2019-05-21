@@ -1,6 +1,7 @@
 # spot-ninja
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/getninjas/spot-ninja)](https://goreportcard.com/report/github.com/getninjas/spot-ninja) [![Build Status](https://travis-ci.org/getninjas/spot-ninja.svg?branch=master)](https://travis-ci.org/getninjas/spot-ninja)
+[![Go Report Card](https://goreportcard.com/badge/github.com/getninjas/spot-ninja)](https://goreportcard.com/report/github.com/getninjas/spot-ninja)
+[![Build Status](https://travis-ci.org/getninjas/spot-ninja.svg?branch=master)](https://travis-ci.org/getninjas/spot-ninja)
 [![GoDoc](https://godoc.org/github.com/getninjas/spot-ninja?status.svg)](https://godoc.org/github.com/getninjas/spot-ninja)
 
 Available translations:
@@ -25,7 +26,13 @@ spot ninja is released under the terms of the Apache License. See LICENSE file f
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
 
+## Architecture
+
+![spot-ninja](assets/spot.png)
+
 ## ENVs configuration
+
+To configure the spot-ninja, you need to configure some environment variables. The variables are:
 
 - AWS_REGION
   - Default us-east-1
@@ -57,6 +64,8 @@ spot ninja is released under the terms of the Apache License. See LICENSE file f
   - Default false
 - SQS_URL
   - Default none
+- PREFIX
+  - Default ecs-
 
 ## Installing with docker-compose
 
@@ -107,6 +116,14 @@ spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais
   - CloudWatchReadOnlyAccess
   - AmazonEC2SpotFleetAutoscaleRole
   - AutoScalingConsoleFullAccess
+
+## Arquitetura
+
+![spot-ninja](assets/spot.png)
+
+## Variáveis de ambiente
+
+Para configurar o spot-ninja, é necessário configurar algumas variáveis de ambiente. As variáveis são:
 
 - AWS_REGION
   - Default us-east-1

@@ -18,7 +18,7 @@ import (
 	"github.com/getninjas/spot-ninja/pkg/structure"
 )
 
-// waitTimeDrain will controll how many (seconds) time to wait to drain result
+// waitTimeDrain will control how many (seconds) time to wait to drain result
 const waitTimeDrain int = 300
 
 // Create a session on AWS EC2

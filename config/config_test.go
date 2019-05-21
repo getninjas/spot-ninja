@@ -2,6 +2,7 @@ package config
 
 import (
 	"os"
+	"strings"
 	"testing"
 )
 
@@ -10,7 +11,7 @@ func TestDataPointConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 30},
+		{"Test", 30},
 	}
 	os.Setenv("DATAPOINTCONFIG", "42")
 	for _, tt := range tests {
@@ -27,7 +28,7 @@ func TestStatisticConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "Average"},
+		{"Test", "Average"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -43,7 +44,7 @@ func TestFleetTypeConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "FleetRequestId"},
+		{"Test", "FleetRequestId"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -59,7 +60,7 @@ func TestIDmetricConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "metric"},
+		{"Test", "metric"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -75,7 +76,7 @@ func TestScantypeConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "TimestampDescending"},
+		{"Test", "TimestampDescending"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -91,7 +92,7 @@ func TestMetricnameConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "PendingCapacity"},
+		{"Test", "PendingCapacity"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -107,7 +108,7 @@ func TestNamespaceConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "AWS/EC2Spot"},
+		{"Test", "AWS/EC2Spot"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -123,7 +124,7 @@ func TestUnitConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "Count"},
+		{"Test", "Count"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -139,7 +140,7 @@ func TestTimeToConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 5},
+		{"Test", 5},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -155,7 +156,7 @@ func TestSpeedConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 10},
+		{"Test", 10},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -171,7 +172,7 @@ func TestDividerConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 4},
+		{"Test", 4},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -179,5 +180,78 @@ func TestDividerConfig(t *testing.T) {
 				t.Errorf("DividerConfig() = %v, want %v", got, tt.want)
 			}
 		})
+	}
+}
+
+func Test_getStringEnv(t *testing.T) {
+	tests := []struct {
+		name string
+		want string
+	}{
+		{"Test", "example"},
+	}
+	os.Setenv("Test", "example")
+
+	result, _ := getStringEnv("Test")
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := result; got != tt.want {
+				t.Errorf("getStringEnv() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_getIntEnv(t *testing.T) {
+	tests := []struct {
+		name string
+		want int64
+	}{
+		{"Test", 42},
+	}
+	os.Setenv("Test", "42")
+
+	result, _ := getIntEnv("Test")
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := result; got != tt.want {
+				t.Errorf("getIntEnv() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_getBoolEnv(t *testing.T) {
+	tests := []struct {
+		name string
+		want bool
+	}{
+		{"Test", true},
+	}
+	os.Setenv("Test", "true")
+
+	result, _ := getBoolEnv("Test")
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := result; got != tt.want {
+				t.Errorf("getBoolEnv() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_getArryStringEnv(t *testing.T) {
+	strwant := strings.FieldsFunc("42,", func(r rune) bool {
+		if r == ',' {
+			return true
+		}
+		return false
+	})
+
+	os.Setenv("Test", "42")
+	result, _ := getArryStringEnv("Test")
+
+	if result[0] != strwant[0] {
+		t.Errorf("getArryStringEnv() = %v, want %v", result[0], strwant[0])
 	}
 }

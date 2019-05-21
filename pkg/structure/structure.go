@@ -143,12 +143,12 @@ func CheckLock(lock int64) bool {
 	return result >= timeToLive
 }
 
-// GetTrigger wil return true if need to enable fallback
+// GetTrigger returns true if you need to enable fallback
 func GetTrigger(data int64) bool {
 	return data > 0
 }
 
-// IgnoreFleet will return true if the fleed not need to monitor
+// IgnoreFleet returns true if the fleet does not need to monitor
 func IgnoreFleet(iamRole string) bool {
 	list := config.FleetIgnored()
 

@@ -1,12 +1,13 @@
 ---
+language: minimal
 
 before_install:
   - docker build -t getninjas/spot-ninja .
 
-script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push getninjas/spot-ninja:latest
-  on:
-    branch: master
-
-
+deploy:
+  - provider: script
+    script: 
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      docker push getninjas/spot-ninja:latest
+    on:
+      branch: master

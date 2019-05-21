@@ -11,7 +11,7 @@ func TestDataPointConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 30},
+		{"Test", 30},
 	}
 	os.Setenv("DATAPOINTCONFIG", "42")
 	for _, tt := range tests {
@@ -28,7 +28,7 @@ func TestStatisticConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "Average"},
+		{"Test", "Average"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -44,7 +44,7 @@ func TestFleetTypeConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "FleetRequestId"},
+		{"Test", "FleetRequestId"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -60,7 +60,7 @@ func TestIDmetricConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "metric"},
+		{"Test", "metric"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -76,7 +76,7 @@ func TestScantypeConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "TimestampDescending"},
+		{"Test", "TimestampDescending"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -92,7 +92,7 @@ func TestMetricnameConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "PendingCapacity"},
+		{"Test", "PendingCapacity"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -108,7 +108,7 @@ func TestNamespaceConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "AWS/EC2Spot"},
+		{"Test", "AWS/EC2Spot"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -124,7 +124,7 @@ func TestUnitConfig(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "Count"},
+		{"Test", "Count"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -140,7 +140,7 @@ func TestTimeToConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 5},
+		{"Test", 5},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -156,7 +156,7 @@ func TestSpeedConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 10},
+		{"Test", 10},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -172,7 +172,7 @@ func TestDividerConfig(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 4},
+		{"Test", 4},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -188,7 +188,7 @@ func Test_getStringEnv(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "example"},
+		{"Test", "example"},
 	}
 	os.Setenv("Test", "example")
 
@@ -207,7 +207,7 @@ func Test_getIntEnv(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Teste", 42},
+		{"Test", 42},
 	}
 	os.Setenv("Test", "42")
 
@@ -226,7 +226,7 @@ func Test_getBoolEnv(t *testing.T) {
 		name string
 		want bool
 	}{
-		{"Teste", true},
+		{"Test", true},
 	}
 	os.Setenv("Test", "true")
 

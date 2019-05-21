@@ -6,7 +6,7 @@ services:
 
 before_install:
   - echo "DockerHub credentials"
-  - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - echo "DockerHub credentials - [ OK ] "
   - docker build -t getninjas/spot-ninja .
 

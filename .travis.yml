@@ -1,10 +1,9 @@
 ---
 
-script:
+before_install:
   - docker build -t getninjas/spot-ninja .
 
-
-deploy:
+script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push getninjas/spot-ninja:latest
   on:

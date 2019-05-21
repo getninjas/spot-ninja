@@ -92,7 +92,7 @@ func TestListInstanceIds(t *testing.T) {
 
 func Test_sendSqsMessage(t *testing.T) {
 	structure.GetRegion()
-	instanceID := "i-0c22079b9d3120907"
+	instanceID := "i-42424242424242424242"
 
 	tests := []struct {
 		name string

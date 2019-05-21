@@ -188,9 +188,9 @@ func Test_getStringEnv(t *testing.T) {
 		name string
 		want string
 	}{
-		{"Teste", "hello42"},
+		{"Teste", "example"},
 	}
-	os.Setenv("Test", "hello42")
+	os.Setenv("Test", "example")
 
 	result, _ := getStringEnv("Test")
 	for _, tt := range tests {

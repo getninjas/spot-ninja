@@ -3,6 +3,6 @@
 script:
   - docker build -t getninjas/spot-ninja .
 
-if: branch = master
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push getninjas/spot-ninja:latest
+  if: branch = master
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push getninjas/spot-ninja:latest

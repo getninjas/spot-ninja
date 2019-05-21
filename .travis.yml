@@ -1,13 +1,22 @@
 ---
+sudo: required
+
 language: minimal
 
+services:
+  - docker
+
 before_install:
+  - echo "DockerHub credentials"
+  - echo "$DOCKER_PASSWORD" | sudo docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "DockerHub credentials - [ OK ] "
   - docker build -t getninjas/spot-ninja .
 
-deploy:
-  - provider: script
-    script: 
-      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      docker push getninjas/spot-ninja:latest
-    on:
-      branch: master
+after_success:
+  - echo "branch($TRAVIS_BRANCH) Pull Request($TRAVIS_PULL_REQUEST) Tag($TRAVIS_TAG)"
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then echo -e "Push Container"; fi
+  - echo "$DOCKER_PASSWORD" | sudo docker login -u "$DOCKER_USERNAME" --password-stdin
+  - export REPO=getninjas/spot-ninja
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$TAG .
+  - docker push $REPO

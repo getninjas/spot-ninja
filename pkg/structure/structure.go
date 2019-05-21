@@ -143,7 +143,7 @@ func CheckLock(lock int64) bool {
 	return result >= timeToLive
 }
 
-// GetTrigger wil return true if need to enable fallback
+// GetTrigger returns true if you need to enable fallback
 func GetTrigger(data int64) bool {
 	return data > 0
 }

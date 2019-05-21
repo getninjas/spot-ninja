@@ -219,7 +219,7 @@ func sendSqsMessage(instanceID string) bool {
 
 	message := &sqs.SendMessageInput{
 		DelaySeconds: aws.Int64(5),
-		MessageBody:  aws.String(`{ "detail-type": "Spot Ninja Notification Drain", "source": "spot-ninja", "detail": { "instance-id": ` + instanceID + `, "state": "terminated" } }`),
+		MessageBody:  aws.String(`{ "detail-type": "Spot Ninja Notification Drain", "source": "spot-ninja", "detail": { "instance-id": "` + instanceID + `", "state": "terminated" } }`),
 		QueueUrl:     &qURL,
 	}
 	_, err := client.SendMessage(message)

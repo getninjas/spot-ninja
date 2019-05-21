@@ -2,8 +2,5 @@
 
 test:
   - docker build -t getninjas/spot-ninja .
-
-build-image:
-  - docker build -t getninjas/spot-ninja .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push getninjas/spot-ninja:latest

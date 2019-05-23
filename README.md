@@ -28,7 +28,7 @@ spot ninja is released under the terms of the Apache License. See LICENSE file f
 
 ## Architecture
 
-![spot-ninja](assets/spot.png)
+![spot-ninja](assets/spot_EN-US.png)
 
 ## ENVs configuration
 
@@ -121,7 +121,7 @@ spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais
 
 ## Arquitetura
 
-![spot-ninja](assets/spot.png)
+![spot-ninja](assets/spot_PT_BR.png)
 
 ## Variáveis de ambiente
 

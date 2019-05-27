@@ -261,10 +261,9 @@ func TestTimeToLive(t *testing.T) {
 		name string
 		want int64
 	}{
-		{"Test", 42},
+		{"Test", 900},
 	}
-
-	os.Setenv("TIMETO_LIVE", "42")
+	
 	result := TimeToLive()
 
 	for _, tt := range tests {

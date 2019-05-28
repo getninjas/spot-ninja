@@ -66,7 +66,7 @@ To configure the spot-ninja, you need to configure some environment variables. T
   - Default none
 - PREFIX
   - Default ecs-
-- TIMETO_LIVE
+- TIME_TO_LIVE
   - In seconds Default 15 min.
 
 ## Installing with docker-compose
@@ -159,7 +159,7 @@ Para configurar o spot-ninja, é necessário configurar algumas variáveis de am
   - Padrão nenhum
 - PREFIX
   - Padrão ecs-
-- TIMETO_LIVE
+- TIME_TO_LIVE
   - Em segundos padrão 15 min.
 
 ## Instalando o projeto via o docker-compose

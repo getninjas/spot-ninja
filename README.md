@@ -95,6 +95,7 @@ docker-compose up
 ### Refs
 
 - [gopherize](https://www.gopherize.me/)
+- [cloudcraft](https://cloudcraft.co/)
 - [project-layout](https://github.com/golang-standards/project-layout)
 - [regex101](https://regex101.com/r/FwSMp7/1/)
 - [sdk-for-go](https://docs.aws.amazon.com/sdk-for-go/api/)
@@ -188,6 +189,7 @@ docker-compose up
 ## Ref
 
 - [gopherize](https://www.gopherize.me/)
+- [cloudcraft](https://cloudcraft.co/)
 - [project-layout](https://github.com/golang-standards/project-layout)
 - [regex101](https://regex101.com/r/FwSMp7/1/)
 - [sdk-for-go](https://docs.aws.amazon.com/sdk-for-go/api/)

@@ -10,7 +10,7 @@ spot ninja está licenciada por Apache License. Veja o arquivo LICENSE para mais
 
 - Docker >=v1.13.1
 - Docker Compose >=1.23.1
-- Go >= 1.11.2
+- Go >= 1.12.7
 - Modulo aws-sdk-go
 - Modulo yaml.v2
 - Polices:

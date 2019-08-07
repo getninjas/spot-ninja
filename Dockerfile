@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
-# configure env and workdir - golang:1.12.3
+# configure env and workdir - golang:1.12.7
 # ------------------------------------------------------------------------------
-FROM golang@sha256:55f89a93dde69671d902f5c205ff49299cb4dfa3480961773dd8f61696a3aa02 AS pre-build
+FROM golang:1.12.7 AS pre-build
 LABEL SQUAD="getninjas"
 RUN useradd spot-ninja
 ENV APP /home/spot-ninja
@@ -18,11 +18,13 @@ RUN go mod download
 RUN go test -cover ./config/ \
     && go test -cover ./pkg/logic/ \
     && go test -cover ./pkg/structure/ \
+    && go test -cover ./pkg/api/ \
     && go vet ./pkg/api/ \
     && go vet ./cmd/spot-ninja/ \
     && go vet ./config/ \
     && go vet ./pkg/logic/ \
-    && go vet ./pkg/structure/
+    && go vet ./pkg/structure/ \
+    && go vet ./pkg/api/ 
 # ------------------------------------------------------------------------------
 # builder - build the binary 
 # ------------------------------------------------------------------------------

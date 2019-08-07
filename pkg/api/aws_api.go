@@ -6,8 +6,7 @@ import (
 	"time"
 
 	"github.com/getninjas/spot-ninja/config"
-
-	"github.com/aws/aws-sdk-go/service/sqs"
+	"github.com/getninjas/spot-ninja/pkg/structure"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -15,16 +14,12 @@ import (
 	"github.com/aws/aws-sdk-go/service/autoscaling"
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/getninjas/spot-ninja/pkg/structure"
+	"github.com/aws/aws-sdk-go/service/ec2/ec2iface"
+	"github.com/aws/aws-sdk-go/service/sqs"
 )
 
 // waitTimeDrain will control how many (seconds) time to wait to drain result
 const waitTimeDrain int = 300
-
-// Create a session on AWS EC2
-func sessiontStartEc2() *ec2.EC2 {
-	return ec2.New(session.New())
-}
 
 // Create a session on AWS CloudWatch
 func sessionStartCloudWatch() *cloudwatch.CloudWatch {
@@ -42,12 +37,13 @@ func sessionSqs() *sqs.SQS {
 }
 
 // GetSpotID show the spot IDs from AWS account
-func GetSpotID() []string {
+func GetSpotID(client ec2iface.EC2API) []string {
+
 	spotID := []string{}
-	client := sessiontStartEc2()
 	input := &ec2.DescribeSpotFleetRequestsInput{}
 
 	dataResult, err := client.DescribeSpotFleetRequests(input)
+
 	if err != nil {
 		fmt.Println("error, describe-spotfleetrequest, ", err)
 	}
@@ -93,9 +89,8 @@ func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
 	return 0
 }
 
-// ScalingName get the real name from
-func ScalingName(id string) string {
-	client := sessiontStartEc2()
+// ScalingName get the real name from fallback
+func ScalingName(id string, client ec2iface.EC2API) string {
 	var scaling string
 	input := &ec2.DescribeSpotFleetRequestsInput{
 		SpotFleetRequestIds: []*string{

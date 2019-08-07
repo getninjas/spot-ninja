@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/getninjas/spot-ninja/pkg/api"
 	"github.com/getninjas/spot-ninja/pkg/structure"
 )
@@ -13,12 +15,15 @@ const timeStampCount = 2
 
 // Start function work like a entrypoint to start all logic system
 func Start() {
-	spotID := api.GetSpotID()
+	sessEc2 := session.Must(session.NewSession())
+	s := ec2.New(sessEc2)
+
+	spotID := api.GetSpotID(s)
 	lock := make([]int64, len(spotID))
 
 	for {
 		for i, ID := range spotID {
-			scaling := api.ScalingName(ID)
+			scaling := api.ScalingName(ID, s)
 			timeNow := time.Now()
 			unstablePoints := api.QueryDataRequest(structure.QueryData(
 				structure.CloudDimension(ID),

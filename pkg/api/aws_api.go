@@ -81,6 +81,7 @@ func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
 	}
 
 	if len(dataResult.MetricDataResults) == 0 {
+		fmt.Println("error, describe-metadata, metadata are empty")
 		return 0
 	}
 

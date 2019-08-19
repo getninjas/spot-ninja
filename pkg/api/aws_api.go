@@ -85,8 +85,8 @@ func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
 		return 0
 	}
 
-	for _, loop := range dataResult.MetricDataResults {
-		result = *loop.Values[0]
+	for index, loop := range dataResult.MetricDataResults {
+		result = *loop.Values[index]
 	}
 
 	if result >= 1 {

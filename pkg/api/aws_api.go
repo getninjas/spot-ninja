@@ -80,6 +80,11 @@ func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
 		fmt.Println("error, describe-metadata, ", err)
 	}
 
+	if len(dataResult.MetricDataResults) == 0 {
+		fmt.Println("error, describe-metadata, metadata are empty")
+		return 0
+	}
+
 	for index, loop := range dataResult.MetricDataResults {
 		result = *loop.Values[index]
 	}

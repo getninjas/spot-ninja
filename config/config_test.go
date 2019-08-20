@@ -263,7 +263,7 @@ func TestTimeToLive(t *testing.T) {
 	}{
 		{"Test", 900},
 	}
-	
+
 	result := TimeToLive()
 
 	for _, tt := range tests {

@@ -77,10 +77,16 @@ func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
 	dataResult, err := client.GetMetricData(request)
 	if err != nil {
 		fmt.Println("error, describe-metadata, ", err)
+		return 0
 	}
 
-	// avoid index out of range
-	if len(fmt.Sprint(*dataResult.MetricDataResults[0].Values[0])) == 0 {
+	if len(dataResult.MetricDataResults) == 0 {
+		fmt.Println("error, describe-metadata, MetricDataResults empty")
+		return 0
+	}
+
+	if len(dataResult.MetricDataResults[0].Values) == 0 {
+		fmt.Println("error, describe-metadata, MetricDataResults.Values empty")
 		return 0
 	}
 

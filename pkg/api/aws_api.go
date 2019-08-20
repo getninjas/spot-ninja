@@ -61,7 +61,6 @@ func GetSpotID(client ec2iface.EC2API) []string {
 
 // QueryDataRequest request all necessary data from AWS
 func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
-	var result float64
 	client := sessionStartCloudWatch()
 
 	timeNow := time.Now()
@@ -80,18 +79,12 @@ func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
 		fmt.Println("error, describe-metadata, ", err)
 	}
 
-	if len(dataResult.MetricDataResults) == 0 {
-		fmt.Println("error, describe-metadata, metadata are empty")
-		return 0
-	}
-
-	for _, loop := range dataResult.MetricDataResults {
-		result = *loop.Values[0]
-	}
+	result := *dataResult.MetricDataResults[0].Values[0]
 
 	if result >= 1 {
 		return int64(result) / structure.Divider()
 	}
+
 	return 0
 }
 

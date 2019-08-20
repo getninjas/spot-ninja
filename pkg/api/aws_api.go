@@ -79,8 +79,12 @@ func QueryDataRequest(data *cloudwatch.MetricDataQuery) int64 {
 		fmt.Println("error, describe-metadata, ", err)
 	}
 
-	result := *dataResult.MetricDataResults[0].Values[0]
+	// avoid index out of range
+	if len(fmt.Sprint(*dataResult.MetricDataResults[0].Values[0])) == 0 {
+		return 0
+	}
 
+	result := *dataResult.MetricDataResults[0].Values[0]
 	if result >= 1 {
 		return int64(result) / structure.Divider()
 	}

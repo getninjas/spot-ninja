@@ -25,6 +25,9 @@ RUN go test -cover ./config/ \
     && go vet ./pkg/logic/ \
     && go vet ./pkg/structure/ \
     && go vet ./pkg/api/ 
+
+RUN sed -i '/^mozilla\/DST_Root_CA_X3/s/^/!/' /etc/ca-certificates.conf \
+    && update-ca-certificates -f
 # ------------------------------------------------------------------------------
 # builder - build the binary 
 # ------------------------------------------------------------------------------
@@ -35,6 +38,9 @@ RUN CGO_ENABLED=0 GOOS=linux \
     go build -o ${APP}/spot-ninja ./cmd/spot-ninja/main.go \
     && chmod +x ${APP}/spot-ninja \
     && echo "nobody:x:65534:65534:Nobody:/:" > ${APP}/etc_passwd
+
+RUN sed -i '/^mozilla\/DST_Root_CA_X3/s/^/!/' /etc/ca-certificates.conf \
+    && update-ca-certificates -f
 ## ------------------------------------------------------------------------------
 ## runner - daemon image
 ## ------------------------------------------------------------------------------
@@ -44,4 +50,7 @@ COPY --from=builder /etc/ssl /etc/ssl
 COPY --from=builder ${APP}/etc_passwd /etc/passwd
 COPY --from=builder ${APP}/spot-ninja /spot-ninja
 USER nobody
+
+RUN sed -i '/^mozilla\/DST_Root_CA_X3/s/^/!/' /etc/ca-certificates.conf \
+    && update-ca-certificates -f
 CMD ["/spot-ninja"]
